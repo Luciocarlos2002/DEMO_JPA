@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TupaEditDlg" widgetVar="TupaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{vista.EditTupaTitle}">
+            <h:form id="TupaEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tupaController.selected != null}">
+                        <p:outputLabel value="#{vista.EditTupaLabel_idtup}" for="idtup" />
+                        <p:inputText id="idtup" value="#{tupaController.selected.idtup}" title="#{vista.EditTupaTitle_idtup}" required="true" requiredMessage="#{vista.EditTupaRequiredMessage_idtup}"/>
+                        <p:outputLabel value="#{vista.EditTupaLabel_dentup}" for="dentup" />
+                        <p:inputText id="dentup" value="#{tupaController.selected.dentup}" title="#{vista.EditTupaTitle_dentup}" />
+                        <p:outputLabel value="#{vista.EditTupaLabel_platup}" for="platup" />
+                        <p:inputText id="platup" value="#{tupaController.selected.platup}" title="#{vista.EditTupaTitle_platup}" />
+                        <p:outputLabel value="#{vista.EditTupaLabel_idare}" for="idare" />
+                        <p:inputText id="idare" value="#{tupaController.selected.idare}" title="#{vista.EditTupaTitle_idare}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tupaController.update}" value="#{vista.Save}" update="display,:TupaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TupaEditDialog');"/>
+                    <p:commandButton value="#{vista.Cancel}" onclick="TupaEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

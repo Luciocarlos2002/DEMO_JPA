@@ -1,0 +1,13 @@
+modelo\entidad\Area_.class
+modelo\dao\AreaFacade.class
+modelo\entidad\Area.class
+controlador\util\JsfUtil.class
+controlador\TupaController.class
+controlador\TupaController$TupaControllerConverter.class
+modelo\dao\TupaFacade.class
+modelo\entidad\Tupa.class
+modelo\entidad\Tupa_.class
+controlador\AreaController$AreaControllerConverter.class
+controlador\AreaController.class
+controlador\util\JsfUtil$PersistAction.class
+modelo\dao\AbstractFacade.class

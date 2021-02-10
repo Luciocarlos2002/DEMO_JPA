@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TupaCreateDlg" widgetVar="TupaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{vista.CreateTupaTitle}">
+            <h:form id="TupaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tupaController.selected != null}">
+                        <p:outputLabel value="#{vista.CreateTupaLabel_idtup}" for="idtup" />
+                        <p:inputText id="idtup" value="#{tupaController.selected.idtup}" title="#{vista.CreateTupaTitle_idtup}" required="true" requiredMessage="#{vista.CreateTupaRequiredMessage_idtup}"/>
+                        <p:outputLabel value="#{vista.CreateTupaLabel_dentup}" for="dentup" />
+                        <p:inputText id="dentup" value="#{tupaController.selected.dentup}" title="#{vista.CreateTupaTitle_dentup}" />
+                        <p:outputLabel value="#{vista.CreateTupaLabel_platup}" for="platup" />
+                        <p:inputText id="platup" value="#{tupaController.selected.platup}" title="#{vista.CreateTupaTitle_platup}" />
+                        <p:outputLabel value="#{vista.CreateTupaLabel_idare}" for="idare" />
+                        <p:inputText id="idare" value="#{tupaController.selected.idare}" title="#{vista.CreateTupaTitle_idare}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tupaController.create}" value="#{vista.Save}" update="display,:TupaListForm:datalist,:growl" oncomplete="handleSubmit(args,'TupaCreateDialog');"/>
+                    <p:commandButton value="#{vista.Cancel}" onclick="TupaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TupaViewDlg" widgetVar="TupaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{vista.ViewTupaTitle}">
+            <h:form id="TupaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tupaController.selected != null}">
+                        <h:outputText value="#{vista.ViewTupaLabel_idtup}"/>
+                        <h:outputText value="#{tupaController.selected.idtup}" title="#{vista.ViewTupaTitle_idtup}"/>
+                        <h:outputText value="#{vista.ViewTupaLabel_dentup}"/>
+                        <h:outputText value="#{tupaController.selected.dentup}" title="#{vista.ViewTupaTitle_dentup}"/>
+                        <h:outputText value="#{vista.ViewTupaLabel_platup}"/>
+                        <h:outputText value="#{tupaController.selected.platup}" title="#{vista.ViewTupaTitle_platup}"/>
+                        <h:outputText value="#{vista.ViewTupaLabel_idare}"/>
+                        <h:outputText value="#{tupaController.selected.idare}" title="#{vista.ViewTupaTitle_idare}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{vista.Close}" onclick="TupaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
